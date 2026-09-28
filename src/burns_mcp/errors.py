@@ -61,10 +61,10 @@ class McpServiceError(Exception):
     def to_dict(self) -> dict[str, Any]:
         return {
             "status": "error",
-            "error": self.error,
+            "error": sanitize_text(self.error),
             "guidance": {
                 "retryable": self.retryable,
-                "next_action": self.guidance,
+                "next_action": sanitize_text(self.guidance),
             },
             "diagnostic": {
                 "error_type": self.error_type,
@@ -105,10 +105,10 @@ def format_three_layer_error(
 
     return {
         "status": "error",
-        "error": error,
+        "error": sanitize_text(error),
         "guidance": {
             "retryable": retryable,
-            "next_action": next_action,
+            "next_action": sanitize_text(next_action),
         },
         "diagnostic": diagnostic,
     }
