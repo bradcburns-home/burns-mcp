@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "burns-mcp"
-version = "0.1.0"
-description = "Shared scaffolding for Burns Lab FastMCP servers (Gemini-safe tool schemas, and—over time—crash guard, three-layer errors, author utils, health route)"
+version = "0.2.0"
+description = "Shared scaffolding for Burns Lab FastMCP servers (Gemini-safe tool schemas, three-layer errors, author resolution)"
 requires-python = ">=3.11"
 license = {text = "MIT"}
 dependencies = []
@@ -15,6 +15,9 @@ Repository = "https://github.com/bradcburns-home/burns-mcp"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
 
 [tool.ruff]
 line-length = 120
